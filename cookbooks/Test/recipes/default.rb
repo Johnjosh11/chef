@@ -20,3 +20,12 @@ cookbook_file '/tmp/test2' do
     action :create
 end
 
+template '/tmp/test3' do
+    source 'wesley'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+end
+
+
