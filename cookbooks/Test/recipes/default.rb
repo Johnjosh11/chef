@@ -11,3 +11,12 @@ file '/tmp/test1' do
     mode '0755'
     action :create
 end
+
+cookbook_file '/tmp/test2' do
+    source 'john'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+end
+
