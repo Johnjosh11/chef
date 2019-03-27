@@ -21,7 +21,7 @@ cookbook_file '/tmp/test2' do
 end
 
 template '/tmp/test3' do
-    source 'wesley'
+	source 'wesley.erb'
     owner 'root'
     group 'root'
     mode '0755'
