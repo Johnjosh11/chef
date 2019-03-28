@@ -1,0 +1,21 @@
+{
+  "name": "UAT", 
+    "description": "ESF Application Servcies UAT Environment",
+    "cookbook_versions": {
+    },
+
+    "json_class": "Chef::Environment",
+    "chef_type": "environment",
+    "default_attributes": {
+      "GlusterFS": {
+        "Server1": "10.13.2.11",
+        "Server2": "10.13.2.141"
+      },
+      "S3-Bucket": {
+        "Account-Id": "821439784778"
+      },
+      "Default": {
+        "Environment": "UAT"
+      }
+    }
+}
