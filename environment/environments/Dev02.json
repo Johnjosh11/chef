@@ -1,0 +1,21 @@
+{
+  "name": "Dev02", 
+    "description": "ESF Application Servcies Dev02 Environment",
+    "cookbook_versions": {
+    },
+
+    "json_class": "Chef::Environment",
+    "chef_type": "environment",
+    "default_attributes": {
+      "GlusterFS": {
+        "Server1": "10.15.2.11",
+        "Server2": "10.15.2.141"
+      },
+      "S3-Bucket": {
+        "Account-Id": "660179665212"
+      },
+      "Default": {
+        "Environment": "DEV"
+      }
+    }
+}
