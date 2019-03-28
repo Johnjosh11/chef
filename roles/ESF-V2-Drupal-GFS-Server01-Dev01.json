@@ -1,0 +1,19 @@
+
+{
+  "name": "ESF-V2-Drupal-GFS-Server01-Dev01",
+  "description": "Installs GlsuterFS Server",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	
+	},
+  "run_list": [
+	"recipe[chef-client]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal_gfs]",	
+	"recipe[ESF-Cron::drupal_cron.gfs]",
+	"recipe[ESF-GlusterFS::glusterfs-server1]"
+	]
+}

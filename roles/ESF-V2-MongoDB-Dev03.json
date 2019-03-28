@@ -1,0 +1,17 @@
+
+{
+  "name": "ESF-V2-MongoDB-Dev03",
+  "description": "Installs Latest version of MongoDB",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	  "recipe[chef-client]",
+    "recipe[iptables]",
+    "recipe[iptables::mongodb_dev03]",	
+    "recipe[ESF-MongoDB::default]"
+	]
+}

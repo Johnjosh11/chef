@@ -1,0 +1,26 @@
+
+{
+  "name": "ESF-V2-Drupal",
+  "description": "Installs Latest version of aache, php, and Push-Job",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	"recipe[chef-client]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal_dev]",
+	"recipe[ESF-S3-Mount]",
+	"recipe[ESF-S3-Mount::drupal_s3Mount]",	
+    "recipe[apache]",
+    "recipe[Python3.6]",
+    "recipe[ESF-Tomcat::default]", 
+	"recipe[ESF-Tomcat::nsvc_accsvc_deploument_dev]",
+    "recipe[push-jobs]",
+    "recipe[ESF-Logrotate::drupal_logrotate]",
+    "recipe[ESF-AWSlogs]",	
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}

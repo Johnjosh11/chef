@@ -1,0 +1,24 @@
+
+{
+  "name": "ESF-V2-Drupal-OCR-Dev",
+  "description": "Installs Latest version of aache, php, and Push-Job",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	"recipe[chef-client]",
+    "recipe[Swapfile]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal_dev]",	
+    "recipe[ESF-Python::python_package_install_for_ocr]",
+	"recipe[ESF-Python::python-service-ocr-dev]",
+	"recipe[ESF-Python::python_deployment_ocr_dev]",
+	"recipe[ESF-Cron::python_ocr_cron_dev]",
+    "recipe[ESF-Logrotate::ocr_logrotate]",
+    "recipe[ESF-AWSlogs]",	
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}

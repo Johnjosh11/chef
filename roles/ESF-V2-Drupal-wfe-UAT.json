@@ -1,0 +1,25 @@
+{
+  "name": "ESF-V2-Drupal-wfe-UAT",
+  "description": "Installs Latest version of aache, php, and Push-Job",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+
+	},
+  "run_list": [
+	"recipe[chef-client]",
+	"recipe[Swapfile]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal]",
+	"recipe[ESF-GlusterFS::glusterfs-client]",
+	"recipe[ESF-Apache::apache_with_php_5_6]",
+    "recipe[ESF-Apache::apache_vhost_config_file_wfe]",
+	"recipe[ESF-Apache::apache_deployment_script_wfe]",
+	"recipe[ESF-Cron::drupal_cron]",
+    "recipe[ESF-Logrotate::drupal_logrotate]",
+    "recipe[ESF-AWSlogs]",	
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}

@@ -1,0 +1,29 @@
+
+{
+  "name": "ESF-V2-Drupal-UES",
+  "description": "Installs Latest version of aache, php, and Push-Job",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	"recipe[chef-client]",  
+    "recipe[iptables]",
+    "recipe[iptables::drupal]",
+	"recipe[ESF-GlusterFS::glusterfs-client-uat]",
+	"recipe[ESF-Apache::default]",
+    "recipe[ESF-Apache::apache_vhost_config_file_ues]",
+	"recipe[ESF-Apache::apache_deployment_script_ues]",
+	"recipe[ESF-Apache::php_ini_ues]",
+    "recipe[ESF-Python::default]",
+	"recipe[ESF-Python::python-service-ues]",
+	"recipe[ESF-Python::python_deployment_ues]",
+    "recipe[ESF-Cron::drupal_cron_ues]",	
+    "recipe[push-jobs]",
+    "recipe[ESF-Logrotate::drupal_logrotate]",
+    "recipe[ESF-AWSlogs]",	
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ESF-V2-Nodejs-Dev",
+  "description": "Installs Nodejs",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	"recipe[chef-client]",
+	"recipe[iptables]",
+    "recipe[iptables::nodejs_dev]",
+    "recipe[ESF-Nodejs]",
+	"recipe[ESF-Nodejs::nodejs_service_Dev]",
+	"recipe[ESF-Nodejs::deployment-Dev]",
+	"recipe[ESF-Logrotate::Nodejs_logrotate]",
+	"recipe[ESF-Cron::nodejs_cron_dev]",
+	"recipe[ESF-AWSlogs]",
+	"recipe[ESF-AWSlogs::Nodejs_config]"
+	]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ESF-V2-Nodejs-Dev01",
+  "description": "Installs Nodejs and configures Logrotate, Cron, AWSlogs and enables iptables",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+  "run_list": [
+	"recipe[chef-client]",
+	"recipe[iptables]",
+    "recipe[iptables::nodejs]",
+    "recipe[ESF-Nodejs]",
+	"recipe[ESF-Nodejs::nodejs_service]",
+	"recipe[ESF-Nodejs::deployment]",
+	"recipe[ESF-Logrotate::Nodejs_logrotate]",
+	"recipe[ESF-Cron::nodejs_cron]",
+	"recipe[ESF-AWSlogs]",
+	"recipe[ESF-AWSlogs::Nodejs_config]"
+	]
+}

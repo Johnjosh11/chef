@@ -1,0 +1,26 @@
+
+{
+  "name": "ESF-V2-Drupal-wfe-Dev04",
+  "description": "Installs Latest version of aache, php, chef-client, creates swapfile of 4GB, enables iptables, Installs GlusterFS, Configures - Cron, Logrotate, and AWSlogs",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+
+	},  
+  "run_list": [
+    "recipe[chef-client]",
+	"recipe[Swapfile]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal]",
+	"recipe[ESF-GlusterFS::glusterfs-client]",
+	"recipe[ESF-Apache::apache_with_php_5_6]",
+    "recipe[ESF-Apache::apache_vhost_config_file_wfe]",
+	"recipe[ESF-Apache::apache_deployment_script_wfe]",
+	"recipe[ESF-Cron::drupal_cron]",
+    "recipe[ESF-Logrotate::drupal_logrotate]",
+    "recipe[ESF-AWSlogs]",
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}	

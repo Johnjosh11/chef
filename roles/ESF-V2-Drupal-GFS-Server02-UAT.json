@@ -1,0 +1,19 @@
+
+{
+  "name": "ESF-V2-Drupal-GFS-Server02-UAT",
+  "description": "Configures Cronjob, installs GlusterFS server and enables iptables",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+
+	},
+  "run_list": [
+	"recipe[chef-client]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal_gfs]",	
+	"recipe[ESF-Cron::drupal_cron_gfs]",
+	"recipe[ESF-GlusterFS::glusterfs-server2]"
+	]
+}

@@ -1,0 +1,31 @@
+
+{
+  "name": "ESF-V2-Drupal-Dev02",
+  "description": "Installs Latest version of apche, php, and Push-Job",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+
+	},
+  "run_list": [
+	"recipe[chef-client]",
+    "recipe[iptables]",
+    "recipe[iptables::drupal]",	
+    "recipe[ESF-GlusterFS::glusterfs-client]",
+	"recipe[ESF-Apache::default]",
+    "recipe[ESF-Apache::apache_vhost_config_file]",
+	"recipe[ESF-Apache::apache_deployment_script]",
+	"recipe[ESF-Apache::php_ini]",
+    "recipe[ESF-Python::default]",
+	"recipe[ESF-Python::python-service]",
+	"recipe[ESF-Python::python_deployment]",
+    "recipe[ESF-Tomcat::default]", 
+	"recipe[ESF-Tomcat::nsvc_accsvc_deploument]",
+	"recipe[ESF-Cron::drupal_cron]",
+    "recipe[ESF-Logrotate::drupal_logrotate]",
+    "recipe[ESF-AWSlogs]",	
+	"recipe[ESF-AWSlogs::drupal_config]"
+	]
+}

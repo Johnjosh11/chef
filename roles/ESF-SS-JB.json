@@ -1,0 +1,23 @@
+{
+  "name": "ESF-SS-JB",
+  "description": "Creating Cron Jobs",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 300,
+      "splay": 60
+    }
+	},
+	"env_run_lists": {
+    "sharedservice": []
+   },
+  "run_list": [
+	"recipe[chef-client]",
+	"recipe[ESF-Cron]",
+	"recipe[EC2-ChefClient::RemoveValidatorFile]",
+    "recipe[EC2-Baseline::WarningBanner]",
+    "recipe[EC2-Baseline::log_bash_command]",
+    "recipe[EC2-Baseline::logtotated]",  
+    "recipe[EC2-Baseline::session_term]",
+    "recipe[EC2-Baseline::pushjobs]"
+	]
+}

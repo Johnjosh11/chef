@@ -1,0 +1,18 @@
+{
+  "name": "role_shared",
+  "description": "Shared System Server Role",
+  "default_attributes": {
+    "chef_client": {
+      "interval": 1800,
+      "splay": 60
+    }
+  },
+  "run_list": [
+    "recipe[EC2-ChefClient::RemoveValidatorFile]",
+    "recipe[EC2-Baseline::WarningBanner]",
+    "recipe[EC2-Baseline::log_bash_command]",
+    "recipe[EC2-Baseline::logtotated]",  
+    "recipe[EC2-Baseline::session_term]",
+    "recipe[EC2-Baseline::pushjobs]"
+  ]
+}
