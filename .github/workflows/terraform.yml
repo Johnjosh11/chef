@@ -1,7 +1,12 @@
 name: Greeting on variable day
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to Install'
+        required: true
+        default: 'Test'
 
 env:
   DAY_OF_WEEK: Monday
@@ -13,6 +18,7 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        # run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: echo "${{ github.ref }}"
         env:
           First_Name: Mona
